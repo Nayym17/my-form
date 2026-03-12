@@ -6,8 +6,6 @@
 	<title>Форма сетевой связи</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
 	<style>
-		/*#ffbf02* primary/
-		/*#0241ff secondary*/
 		* {
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
@@ -107,8 +105,8 @@
 <body>
 	<div class="form-container">
 		<h3 class="form-heading">Формочка</h3>
-		<form id="form" action="https://formsubmit.co/" method="POST">
-    		<input type="hidden" name="rederect-to" value="https://github.com/Nayym17/-1/edit/main/%D0%A1%D0%B5%D1%82%D1%8C%D0%A4%D0%B0%D0%B9%D0%BB.html">
+		<form id="form" action="" method="POST">
+    		<input type="hidden" name="rederect-to" value="">
     		<div class="field">
         		<label for="name">Имя</label>
         		<input type="text" name="name" id="name" required>
@@ -140,15 +138,13 @@
 			function focusinInputHandler() {
 				var label = document.querySelector('label[for="' + this.id + '"]');
 				label.classList.add('focused');
-				// console.log(label);
-				// console.log(this.id + ' focus in');
 			}
 
 			function focusoutInputHandler() {
 				var label = document.querySelector('label[for="' + this.id + '"]');
 				if (this.value == '')
 					label.classList.remove('focused');
-				// console.log(this.id + ' focus out');
+				
 
 			}
 
@@ -163,17 +159,16 @@
 			var form = document.getElementById("form");
 
 			form.addEventListener("submit", function(e) {
-				e.preventDefault(); //это команда в JavaScript, которая приказывает браузеру не выполнять стандартное действие
-				//console.log("stop")
+				e.preventDefault();
 
 				var data = {
 					'name': form.elements[1].value,
 					'_replyto': form.elements[2].value
 				}
 
-				var request = new XMLHttpRequest(); // Он отправляет данные в фоновом режиме, чтобы страница не перезагружалась.
+				var request = new XMLHttpRequest();
 
-				request.open("POST", "https://formsubmit.co/", true)
+				request.open("POST", "", true)
 
 				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -186,4 +181,5 @@
 </body>
 
 </html>
+
 
